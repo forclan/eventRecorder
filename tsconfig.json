@@ -5,10 +5,13 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "outDir": "./dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "target": "ES2017",
+    "allowJs": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "node_modules/puppeteer-tsd/src/grpc.d.ts"
   ],
   "exclude": [
     "node_modules",

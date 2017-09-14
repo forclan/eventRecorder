@@ -1,0 +1,26 @@
+{
+  "name": "eventrecorder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forclan/eventRecorder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forclan/eventRecorder/issues"
+  },
+  "homepage": "https://github.com/forclan/eventRecorder#readme",
+  "dependencies": {
+    "puppeteer": "^0.10.2"
+  },
+  "devDependencies": {
+    "puppeteer-tsd": "0.0.2",
+    "ts-loader": "^2.3.7"
+  }
+}

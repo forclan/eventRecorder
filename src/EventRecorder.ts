@@ -35,7 +35,7 @@ function eventListener(e): UserAction {
   const type: string = e.type;
   let value: string, target: string;
   if (type === 'click') {
-    target = e.target;
+    target = cssPath(e.target);
   } else if (type === 'keydown') {
     value = e.key;
   } else if (type === 'keyup') {
@@ -48,5 +48,3 @@ function eventListener(e): UserAction {
     value
   }
 }
-
-const a = new EventRecorder();
