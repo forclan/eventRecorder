@@ -14,29 +14,30 @@
  * limitations under the License.
  */
 
-'use strict';
-
 const puppeteer = require('puppeteer');
-import EventRecorder, { eventListener } from './EventRecorder';
+import * as path from 'path';
+
+const cssPath = path.join(__dirname, '../bin/cssPath.js');
+console.log(cssPath);
+
+const eventRecorder = path.join(__dirname, '../bin/eventListener.js');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
+
   // Define a window.onCustomEvent function on the page.
-  await page.exposeFunction('onCustomEvent', e => {
-    console.log(`${e.type} fired`, e.detail || '');
+  await page.exposeFunction('onCustomEvent', (input: object)=> {
+    console.log(`onCustomEvent fired: input is ${JSON.stringify(input)}`);
   });
-  page.on('console', console.log);
+  page.on('console', val => console.log(`console.log: ${val}`));
 
-  await page.evaluateOnNewDocument(() => {
-    const __recorder = new EventRecorder();
-  });
-
-  page.click('#hplogo')
-  await page.goto('https://www.google.com/', {
+  await page.goto('https://www.baidu.com/', {
     waitUntil: 'networkidle'
   });
 
-  // browser.close();
+  await page.injectFile(cssPath);
+  await page.injectFile(eventRecorder);
+
 })();

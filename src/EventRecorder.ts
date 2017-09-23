@@ -48,3 +48,5 @@ function eventListener(e): UserAction {
     value
   }
 }
+
+export default EventRecorder;
