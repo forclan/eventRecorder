@@ -11,7 +11,8 @@ function eventListener(e) {
   return {
     type,
     target,
-    value
+    value,
+    time: Date.now()
   };
 }
 

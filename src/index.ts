@@ -20,6 +20,10 @@ import * as path from 'path';
 const cssPath = path.join(__dirname, '../bin/cssPath.js');
 console.log(cssPath);
 
+
+const hijack = path.join(__dirname, '../bin/hijackInputElement.js');
+console.log(hijack);
+
 const eventRecorder = path.join(__dirname, '../bin/eventListener.js');
 
 (async () => {
@@ -39,5 +43,6 @@ const eventRecorder = path.join(__dirname, '../bin/eventListener.js');
 
   await page.injectFile(cssPath);
   await page.injectFile(eventRecorder);
+  // await page.injectFile(hijack);
 
 })();
